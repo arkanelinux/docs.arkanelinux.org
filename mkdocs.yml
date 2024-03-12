@@ -4,7 +4,7 @@ site_description: "An opinionated, immutable, atomic, multi-root Arch-based dist
 copyright: "CC-BY-SA-4.0 Arkane Linux"
 
 nav:
-  - Introduction: arkanelinux.md
+  - Technical Overview: arkanelinux.md
   - Arkdep:
     - 'arkdep usage': arkdep.md
     - 'arkdep-build usage': arkdep-build.md

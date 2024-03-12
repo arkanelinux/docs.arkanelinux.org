@@ -1,5 +1,4 @@
-# Getting started with Arkane Linux
-
+# A technical overview of Arkane Linux
 Arkane Linux has two versions available for download;
 
 - The flagship immutable version, this version utilizes Arkdep to provide immutability
