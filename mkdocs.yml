@@ -3,6 +3,10 @@ site_url: https://docs.arkanelinux.org/
 site_description: "An opinionated, immutable, atomic, multi-root Arch-based distibution."
 copyright: "CC-BY-SA-4.0 Arkane Linux"
 
+theme:
+  name: mkdocs
+  custom_dir: theme_overrides/
+
 nav:
   - Technical Overview: arkanelinux.md
   - Arkdep:
