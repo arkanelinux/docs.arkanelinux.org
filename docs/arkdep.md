@@ -57,6 +57,21 @@ sudo bootctl set-default aaabbbccc
 sudo bootctl set-oneshot aaabbbccc
 ```
 
+## Removing a deployment
+Deployments which are not the currently active deployment can be manually removed.
+
+For deployments to be removable the deployment has to be listed in the tracker file.
+
+```console
+sudo arkdep remove aaabbbccc
+```
+
+Impartial targets can be provided, if Arkdep has no more than a single hit the found deployment will be removed.
+
+```console
+sudo arkdep remove aaa
+```
+
 # Configuring Arkdep
 Arkdep has several components which may be customized and configured.
 
