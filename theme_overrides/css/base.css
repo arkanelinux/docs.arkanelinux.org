@@ -330,5 +330,5 @@ blockquote {
 }
 
 .navbar {
-	height: 4em !important;
+	min-height: 4em !important;
 }
