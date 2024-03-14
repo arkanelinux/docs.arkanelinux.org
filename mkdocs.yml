@@ -13,6 +13,8 @@ nav:
   - Arkdep:
     - 'arkdep usage': arkdep.md
     - 'arkdep-build usage': arkdep-build.md
+  - Patch Notes:
+    - 'os-installer-arkdep': patch_notes/osi-arkdep.md
 
 extra_css:
   - style.css
