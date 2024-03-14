@@ -3,6 +3,8 @@ Arkane Linux is an immutable distro based on Arch Linux featuring atomic system 
 
 Arkane Linux tries to differentiate itself from other immutable distros by providing an easy to use toolkit to spin your own custom images. The documentation provided here serves to assist you in familiarizing yourself with Arkane Linux and Arkdep.
 
+Arkane Linux primarily serves as a reference implementation, development environment and my personal configuration of the Arkdep immutable system management toolkit.
+
 ## The story so far
 Arkane started off with me exploring the Arch Linux build tools, once again impressed by the flexibility of Arch and its toolstack I quickly decided to take it further and mature this experiment in to a proper Arch Linux-based distro. And this is the point at which we are now, Arkane is taking shape nicely and nearing the beta stage.
 
