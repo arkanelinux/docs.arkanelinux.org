@@ -2,7 +2,7 @@
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
 ## v2.2
-- No longer add dconf files via the overlay, these are now shipped via the image
+- No longer add dconf files via the overlay, these files are now included in the images if relevant
 
 ## v2.1
 - Fixed GNOME keymap not compiling to dconf
