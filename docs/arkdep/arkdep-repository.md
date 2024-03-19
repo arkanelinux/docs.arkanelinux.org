@@ -9,7 +9,7 @@ repo.example.com
 ├── arkdep
 |  ├── list                                 # Plain text file containing names of all available image types
 |  ├── customlinux
-|  |  ├── database                          # Plain text file containing : delimited lists of all available images `image_name:compression_method:sha1sum`
+|  |  ├── database                          # Plain text file containing : delimited lists of all available images `image_name:compression_method:shasum`
 |  |  ├── customlinux_v1.0.tar.zst          # Compressed disk images
 |  |  ├── customlinux_v1.0.tar.zst.sig      # Detached GPG signature
 |  |  ├── customlinux_v2.0.tar.zst	        # Compressed disk images
@@ -19,7 +19,7 @@ repo.example.com
 |  |  ├── customlinux-gnome_v1.0.tar.zst
 |  |  ├── customlinux-gnome_v2.0.tar.zst
 ```
-
+`
 ## List file
 The `list` file is in part optional, it not utilized during the deployment process but the user may use it in combination with the `arkdep get-available` command to request a list of all available images in the repository.
 
@@ -30,7 +30,7 @@ customlinux-kde
 ```
 
 ## Database file
-The `database` file contains a `:` delimited list of all available images. Each line contains the following information `image_name:compression_method:sha_sum`.
+The `database` file contains a `:` delimited list of all available images. Each line contains the following information `image_name:compression_method:shasum`.
 
 The top most entry in the database is considered to the be latest available image, this image is pulled by default if no version is manually defined.
 
