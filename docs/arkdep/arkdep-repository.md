@@ -2,7 +2,7 @@
 Arkdep can be used entirely locally, but it is also capable of pulling images from an external repository.
 
 ## Repository layout
-This would be a suitable layout if `repo_url` in /arkdep/config is set to https://repo.example.com/arkdep.
+This would be a suitable layout if `repo_url` in `/arkdep/config` is set to `https://repo.example.com/arkdep`.
 
 ```text
 repo.example.com
