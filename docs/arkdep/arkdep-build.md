@@ -12,6 +12,7 @@ arkdep-build.d
 |  |  ├── post_bootstrap	# (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
 |  ├── bootstrap.list	    # Plain text file containing list of packages installed by pacstrap, used for installing the base system
 |  ├── package.list		    # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
+|  ├── pacman.conf		    # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
 |  ├── type         	    # Plain text file, for configs of the Arch type should contain `archlinux`
 |  ├── extensions		    # (Optional) Directory for custom scripts
 |     ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
