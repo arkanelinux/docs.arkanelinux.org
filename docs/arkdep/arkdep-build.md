@@ -8,8 +8,8 @@ Do you like the technology but do not like the provided images? No problem! You 
 arkdep-build.d
 ├── customlinux			    # Directory carrying a custom name
 |  ├── overlay              # (Optional) Parent directory of post_bootstrap and post_install overlays
-|  |  ├── post_install		# (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
 |  |  ├── post_bootstrap	# (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
+|  |  ├── post_install		# (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
 |  ├── bootstrap.list	    # Plain text file containing list of packages installed by pacstrap, used for installing the base system
 |  ├── package.list		    # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
 |  ├── pacman.conf		    # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
