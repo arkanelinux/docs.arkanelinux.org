@@ -19,7 +19,7 @@ repo.example.com
 |  |  ├── customlinux-gnome_v1.0.tar.zst
 |  |  ├── customlinux-gnome_v2.0.tar.zst
 ```
-`
+
 ## List file
 The `list` file is in part optional, it not utilized during the deployment process but the user may use it in combination with the `arkdep get-available` command to request a list of all available images in the repository.
 
