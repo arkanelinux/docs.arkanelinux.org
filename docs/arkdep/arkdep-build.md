@@ -6,12 +6,13 @@ Do you like the technology but do not like the provided images? No problem! You 
 
 ```text
 arkdep-build.d
-├── customlinux			# Directory carrying a custom name
-|  ├── overlay			# (Optional) Root filesystem overlay directory, contents are copied to root
-|  ├── bootstrap.list	# Plain text file containing list of packages installed by pacstrap, used for installing the base system
-|  ├── package.list		# (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
-|  ├── type         	# Plain text file, for configs of the Arch type should contain `archlinux`
-|  ├── extensions		# (Optional) Directory for custom scripts
+├── customlinux			    # Directory carrying a custom name
+|  ├── overlay			    # (Optional) Root filesystem overlay directory, contents are copied to root
+|  ├── overlay-postinstall  # (Optional) Root filesystem overlay directory, contents are copied to root after installation is finished
+|  ├── bootstrap.list	    # Plain text file containing list of packages installed by pacstrap, used for installing the base system
+|  ├── package.list		    # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
+|  ├── type         	    # Plain text file, for configs of the Arch type should contain `archlinux`
+|  ├── extensions		    # (Optional) Directory for custom scripts
 |     ├── post-bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
 |     ├── post-install.sh	    # (Optional) Custom bash script which runs after system installation is finished
 ```
