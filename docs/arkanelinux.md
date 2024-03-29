@@ -14,20 +14,24 @@ The GNOME variants all provide a very comparable configuration, a stock gnome-sh
 - Rebuild of `gnome-software` with packagekit support
 - `/home` Btrfs subvolume
 - systemd-boot bootloader
-- Swapfile configured in /var
 
 ## Arkdep variant configuration
 
 Arkdep images mostly grab the above mentioned configuration with the exclusion of the packagekit plugin, since the system is immutable and managed by Arkdep there is no reason to include it.
 
-The following changes are applied to the filesystem;
+The following changes are applied to the filesystem through symlinking;
 
 - `/opt` is symlinked to `/var/opt`
 - `/srv` is symlinked to `/var/srv`
-- `/root` is symlinked to `/var/roothome`
 - `/usr/local` is symlinked to `/var/usrlocal`
 - `/usr/lib/locale` is symlinked to `/var/usrliblocale`
 - `/etc/NetworkManager/system-connections` is symlinked to `/var/nm-system-connections`
+
+The following changes are applied through subvolumes;
+
+- `/root` is a subvolume located at `/arkdep/shared/root`
+- `/home` is a subvolume located at `/arkdep/shared/home`
+- `/var/lib/flatpak` is a subvolume located at `/arkdep/shared/flatpak`
 
 And the following changes in software and configuration;
 
@@ -40,8 +44,11 @@ And the following changes in software and configuration;
 Some notable quirks you should be aware of;
 
 - `/etc` is a separate subvolume living inside of the root of the deployment, it is writable by default
-- Any changes outside of `/var` and `/home` do not carry over between deployments, manually add your changes to `/arkdep/overlay`
-- `/var` and `/home` are shared between all deployments and are stored in `/arkdep/shared`
+- `/var` is a separate subvolume living inside of the root of the deployment, it is writable by default
+- Any changes outside of `/home` or by arkdep copied files and directories do not carry over between deployments
+- `/home` is are shared between all deployments and are stored in `/arkdep/shared/home`
+- `/root` is are shared between all deployments and are stored in `/arkdep/shared/root`
+- `/var/lib/flatpak` is are shared between all deployments and are stored in `/arkdep/shared/flatpak`
 - Adding any overlay files outside of `/arkdep/overlay/etc` will make arkdep temporarily unlock the root subvolume for editing
 - The default bootloader entry is changed using UEFI variables on deployment completion, manually use `bootctl set-default` to change the default deployment to roll back to an older deployment and make it default, or select said older deployment in the systemd-boot bootloader interface
 

@@ -14,6 +14,6 @@ btrfs filesystem mkswapfile --size 6G /arkdep/shared/swapfile
 Update /arkdep/overlay/etc/fstab;
 - Remove /var entry
 - Update swapfile entry to /arkdep/shared/swapfile
-- Add /arkdep/shared/flatpak entry
-- Add /arkdep/shared/root entry
+- Add subvol=arkdep/shared/flatpak entry mounted to /var/lib/flatpak
+- Add subvol=arkdep/shared/root entry mounted to /root
 ```
