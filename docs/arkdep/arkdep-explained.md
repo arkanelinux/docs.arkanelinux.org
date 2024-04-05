@@ -47,7 +47,9 @@ Lets assume we are performing a simple no-parameter-provided deployment with `ar
 2. The images will now be extracted and deployed one at a time. First rootfs which in this example is deployed to `/arkdep/deployments/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/rootfs`, rootfs is temporarily unlocked to allow for the writing of the etc and var subvolumes. Then etc which is deployed to `rootfs/etc` and lastly var which is deployed to `rootfs/var`. The var and etc subvolumes are both unlocked before root is locked again.
 2. `/arkdep/overlay` will be copied to the new deployment. If anything is added to the overlay other then an etc directory root will be temporarily unlocked to allow for these changes to be overlayed.
 2. Files and folders defined in `var_migrate_files` setting will be copied from the current var subvolume to the newly deployed var.
-2. Now that the deployment of the subvolumes is done Arkdep will add a bootloader entry for it. vmlinuz is copied to `/boot/arkdep/aa07d220f08ea7f6260bc94df075bdc27c3e992b48`, then using dracut an initramfs is generated inside of this directory.
+2. Now that the deployment of the subvolumes is done Arkdep will add a systemd-boot bootloader entry for it in `/boot/loader/entries/`.
+2. The vmlinuz from the first found kernel is copied to `/boot/arkdep/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/vmlinuz`
+2. Using dracut an initramfs is generated inside of the deployments unique boot directory.
 2. If provided scripts in `/arkdep/extensions` will be executed, these scripts can be used to apply additional changes or customization to your deployment and extend Arkdep's default behavior.
 2. An entry for it will be written to the `/arkdep/tracker` file, deployments inside of this file Arkdep will consider to be installed and under its management.
 2. A bootloader entry is added to systemd-boot.
