@@ -11,9 +11,10 @@ nav:
   - About: index.md
   - Technical Overview: arkanelinux.md
   - Arkdep:
-    - 'arkdep usage': arkdep/arkdep.md
-    - 'arkdep-build usage': arkdep/arkdep-build.md
-    - 'arkdep repository': arkdep/arkdep-repository.md
+    - 'How it works': arkdep/arkdep-explained.md
+    - 'Arkdep usage': arkdep/arkdep.md
+    - 'Arkdep-build usage': arkdep/arkdep-build.md
+    - 'Arkdep repository': arkdep/arkdep-repository.md
   - Patch Notes:
     - 'arkdep': patch_notes/arkdep.md
     - 'os-installer-arkdep': patch_notes/osi-arkdep.md
