@@ -1,4 +1,4 @@
-# Arkdep-build
+# Arkdep-build usage
 
 Do you like the technology but do not like the provided images? No problem! You can easily spin and deploy custom images should you desire to do so.
 
