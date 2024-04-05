@@ -51,7 +51,7 @@ Lets assume we are performing a simple no-parameter-provided deployment with `ar
 2. The vmlinuz from the first found kernel is copied to `/boot/arkdep/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/vmlinuz`
 2. Using dracut an initramfs is generated inside of the deployments unique boot directory.
 2. If provided scripts in `/arkdep/extensions` will be executed, these scripts can be used to apply additional changes or customization to your deployment and extend Arkdep's default behavior.
-2. An entry for it will be written to the `/arkdep/tracker` file, deployments inside of this file Arkdep will consider to be installed and under its management.
+2. A tracker entry for the new deployment will be written to the `/arkdep/tracker` file, deployments inside of this file Arkdep will consider to be installed and under its management.
 2. A bootloader entry is added to systemd-boot.
 2. The new bootloader entry it is made the default bootloader entry using EFI variables.
 2. Arkdep may now perform a cleanup step to remove old deployments.
