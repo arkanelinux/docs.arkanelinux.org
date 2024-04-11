@@ -30,7 +30,7 @@ The average user may only ever use `arkdep` if they are not intend on building t
 
         de378c78bb4eaa4772849c066902c5af2a356939a6.tar.zst
 
-## How arkdep deploy
+## How arkdep deploy works
 Lets assume we are performing a simple no-parameter-provided deployment with `arkdep deploy`.
 
 2. It will download the datebase file from the external repository defined in `/arkdep/config`. This database file contains a colon delimited list with three pieces of information; the image name, the compression method and a SHA checksum. Here is an example of what a typical database file looks like;
@@ -45,7 +45,7 @@ Lets assume we are performing a simple no-parameter-provided deployment with `ar
 2. If the image is already in the Arkdep cache the download will be skipped. If a .run file exists for this image in cache the download will be resumed.
 2. If configured to do so Arkdep will also attempt to download a gpg signature. If available this signature is used to ensure the integrity of the download. If no such file can be downloaded or this feature is disabled it will instead verify download integrity using the checksum provided in the database, if a GPG signature is configured to be required it will fail with an error.
 2. The images will now be extracted and deployed one at a time. First rootfs which in this example is deployed to `/arkdep/deployments/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/rootfs`, rootfs is temporarily unlocked to allow for the writing of the etc and var subvolumes. Then etc which is deployed to `rootfs/etc` and lastly var which is deployed to `rootfs/var`. The var and etc subvolumes are both unlocked before root is locked again.
-2. `/arkdep/overlay` will be copied to the new deployment. If anything is added to the overlay other then an etc directory root will be temporarily unlocked to allow for these changes to be overlayed.
+2. `/arkdep/overlay` will be copied to the new deployment. If anything is added to the overlay other than an etc directory root will be temporarily unlocked to allow for these changes to be overlayed.
 2. Files and folders defined in `var_migrate_files` setting will be copied from the current var subvolume to the newly deployed var.
 2. Now that the deployment of the subvolumes is done Arkdep will add a systemd-boot bootloader entry for it in `/boot/loader/entries/`.
 2. The vmlinuz from the first found kernel is copied to `/boot/arkdep/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/vmlinuz`
