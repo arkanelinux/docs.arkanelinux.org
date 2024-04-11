@@ -332,3 +332,66 @@ blockquote {
 .navbar {
 	min-height: 4em !important;
 }
+
+@media (prefers-color-scheme: dark) {
+	* {
+		color: #fff;
+	}
+
+	body {
+		background-color: #26252b;
+	}
+
+	.navbar {
+		background-color: #212026 !important;
+	}
+
+	.nav-link :not(.active) {
+		color: rgba(255,255,255,0.8);
+	}
+
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+		color: #fff;
+	}
+
+	code, pre code {
+		background-color: #4c4c4c;
+		color: rgba(255,255,255,0.9);
+		border-color: rgba(255,255,255,0.15);
+	}
+
+	pre {
+		border: solid 1px rgba(255,255,255,0.15);
+		background: rgba(255,255,255,0.15);
+	}
+
+	.navbar-collapse > .flex-column {
+		background-color: #212026;
+	}
+
+	#toc-collapse {
+		border-color: #212026;
+		background-color: #212026 !important;
+	}
+
+	.modal-content {
+		background-color: #212026 !important;
+	}
+
+	.modal-header, .modal-footer {
+		border-color: rgba(255,255,255,0.15);
+	}
+
+	footer > hr {
+		border-color: rgba(255,255,255,0.15);
+	}
+
+	.dropdown-menu {
+		background-color: #212026;
+	}
+
+	.dropdown-item {
+		color: #fff;
+	}
+
+}
