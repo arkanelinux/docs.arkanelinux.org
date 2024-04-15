@@ -76,13 +76,6 @@ gpg --output example.gpg --export example@example.com
 cat example.gpg | sudo tee -a /arkdep/keys/trusted-keys
 ```
 
-Arkdep assumes the signatures to be identical in name to their parent file with a .sig appended.
-
-```console
-097b11844383f9ff62367b54608f9153e3c30e9551.tar.zst
-097b11844383f9ff62367b54608f9153e3c30e9551.tar.zst.sig
-```
-
 ## Generating a signature
 Generate a signature like so;
 
@@ -91,3 +84,10 @@ gpg --output customlinux_v1.0.tar.zst.sig --detach-sig customlinux_v1.0.tar.zst
 ```
 
 Then simply drop these signatures next to disk image itself.
+
+Arkdep assumes the signatures to be identical in name to their parent file with a .sig appended.
+
+```console
+097b11844383f9ff62367b54608f9153e3c30e9551.tar.zst
+097b11844383f9ff62367b54608f9153e3c30e9551.tar.zst.sig
+```
