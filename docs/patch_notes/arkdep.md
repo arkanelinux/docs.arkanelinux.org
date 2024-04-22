@@ -1,5 +1,13 @@
 # Arkdep patch notes
 
+## 2024.04.21
+- Documentation has been moved to manpages
+- Prevent the system from sleeping during image download
+- Handle user interupts during deployments
+- Refuse user interupts while writing images to disk
+- Add `load_extensions` feature for arkdep deploy
+- Various code cleanup and refactors
+
 ## 2024.03.29
 - Each image now has its own unique `/var` directory
 - System-wide Flatpak installs now stored in `/arkdep/shared/flatpak` subvolume
