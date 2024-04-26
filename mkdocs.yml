@@ -15,6 +15,7 @@ nav:
     - 'Arkdep usage': arkdep/arkdep.md
     - 'Arkdep-build usage': arkdep/arkdep-build.md
     - 'Arkdep repository': arkdep/arkdep-repository.md
+    - 'How do I...': arkdep/how-do-i.md
   - Patch Notes:
     - 'arkdep': patch_notes/arkdep.md
     - 'os-installer-arkdep': patch_notes/osi-arkdep.md
