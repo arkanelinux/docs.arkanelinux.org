@@ -55,8 +55,7 @@ sed -i '/repo_default_image/c\repo_default_image="customlinux-v2"' $arkdep_dir/c
 
 
 #
-## You may wish to update the system now manually, or maybe not and
-## instead let the user manually update
+## You may wish to update the system now, or maybe not and instead let the user manually update
 #
 
 # Lets update the system with our new migration done
