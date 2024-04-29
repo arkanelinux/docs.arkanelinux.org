@@ -1,5 +1,11 @@
 # Arkdep patch notes
 
+## 2024.05.31
+- Add option to remove tarball after deployment is finished
+- Btrfs receive now reads images from stdin instead of from disk
+- Add support for migrations
+- A tiny bit of code and terminal output cleanup
+
 ## 2024.04.21
 - Documentation has been moved to manpages
 - Prevent the system from sleeping during image download
