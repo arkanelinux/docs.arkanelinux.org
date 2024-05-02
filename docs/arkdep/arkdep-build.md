@@ -17,6 +17,7 @@ arkdep-build.d
 |  ├── extensions		    # (Optional) Directory for custom scripts
 |     ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
 |     ├── post_install.sh	    # (Optional) Custom bash script which runs after system installation is finished
+|     ├── post_build.sh	        # (Optional) Custom bash script which runs after image creation is fully finished
 ```
 
 - `bootstrap.list` contains a list of packages installed during the bootstrapping process using pacstrap.
