@@ -24,7 +24,7 @@ arkdep-build.d
 - `package.list` contains a list of packages which will be installed after the bootstrapping process using a chrooted pacman.
 - `type` is expected to be present but right now only accepts `archlinux` and `migration`, the file is used by arkdep-build to determine which method of building it should employ for the given configuration, in the future support for more distro families will be added.
 - The contents of the subdirectories located in `overlay` are copied to root after their asociated build step completes, use the overlay to add custom config files or to enable systemd services.
-- `extensions` and its children `post_bootstrap.sh` and `post_install.sh` are optional, these are bash scripts run by arkdep-build if provided, they can be used to introduce custom functionality in to arkdep-build.
+- `extensions` and its children are optional, these are bash scripts run by arkdep-build if provided, they can be used to introduce custom functionality in to arkdep-build.
 
 Note that `bootstrap.list` and `package.list` may not contain any whitespaces or special characters.
 
