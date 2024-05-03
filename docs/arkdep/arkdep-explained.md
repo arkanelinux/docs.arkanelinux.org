@@ -4,7 +4,12 @@ Arkdep uses Btrfs subvolumes to manage the system. Subvolumes are build and expo
 The average user may only ever use `arkdep` if they are not intend on building their own images, it will act as a system update and deployment manager.
 
 ## How arkdep-build works
-1. Create `/`, `/var` and `/etc` Btrfs subvolumes at `/var/tmp/rootfs`, the rootfs directory being the `/` subvolume. Afterwards use pacstrap and pacman to perform a traditional Arch Linux (Or Arch-based distro) install like normal.
+1. A 42 character long random string is generated which will be used as the image name.
+1. Create a temporary image file at `/var/tpm/arkdep-build.img`.
+1. Partition the image file with Btrfs.
+1. Mount the image to `/var/tmp/arkdep-build`
+1. Create `rootfs`, `rootfs/var` and `rootfs/etc` Btrfs subvolumes at `/var/tmp/arkdep-build`.
+1. Use pacstrap and pacman to perform a traditional Arch Linux (Or Arch-based distro) install like normal.
 1. After both the pacstrap and pacman steps it may overlay additional changes such as config files to the newly installed system, this is done by copying the contents of the configuration's overlay directory to the new root.
 1. Temporarily mount the local pacman cache in to the new root so it can pull already cached packages from it.
 1. After the core system installation a hand full of changes will be made to the system, notable ones of which include;
@@ -18,7 +23,6 @@ The average user may only ever use `arkdep` if they are not intend on building t
     - passwd, shadow and group files are copied to `/usr/lib`, the root user is removed from these files
     - The /etc passwd, shadow and group files are changed to only contain the root user
     - CPU microcode is moved from `/boot` to `/usr/lib`
-1. A 42 character long random string is generated which will be used as the image name.
 1. The subvolumes are all made read-only and exported with `btrfs send`.
 1. Each subvolume is exported to its own image. The images follow the following naming scheme;
 
