@@ -54,3 +54,22 @@ Once the image has finished building it will be placed inside of a directory cal
 sudo cp target/aaabbbccc.tar.zst /arkdep/cache/
 sudo arkdep deploy cache aaabbbccc
 ```
+
+## Extensions
+Arkdep-build is build in such a way that it maintains compatibility with existing software repositories, build extensions allow you to make changes to the system at various steps during the build process. Because Arkdep managed systems are not supposed to install packages using their native package manager after deployment you are free to move, remove or change anything in the system with no fear of breakages.
+
+`post_bootstrap.sh` is sourced by Arkdep-build after it finished bootstrapping the base system and overlaying `overlay/post_bootstrap`.
+
+`post_install.sh` is sourced by Arkdep-build after installing all system packages and overlaying `overlay/post_install` but before it performs generic modifications to the system to make it immutable compatible.
+
+`post_build.sh` is sourced by Arkdep-build once the build is fully completed and exported, but before it performs a cleanup.
+
+These scripts will have access to all the same information Arkdep-build utilizes for image creation.
+
+| Variable | Usecase |
+| --- | --- |
+| `$build_image` | Location of virtual Btrfs disk |
+| `$build_image_mountpoint` | The mountpoint of the build image filesystem |
+| `$build_image_size` | Size of the build image in syntax accepted by fallocate |
+| `$workdir` | Working directory to which the root filesystem is installed, typically set to `$build_image_mountpoint/rootfs` |
+| `$variant` | Name of the image variant we are building, `arkdep-build.d/$variant` would resolve the variant configuration location |
