@@ -73,3 +73,8 @@ These scripts will have access to all the same information Arkdep-build utilizes
 | `$build_image_size` | Size of the build image in syntax accepted by fallocate |
 | `$workdir` | Working directory to which the root filesystem is installed, typically set to `$build_image_mountpoint/rootfs` |
 | `$variant` | Name of the image variant we are building, `arkdep-build.d/$variant` would resolve the variant configuration location |
+
+## Reference material
+The primary Arkane Linux configuration and several testing one can be found on either [Github](https://github.com/arkanelinux/arkdep/tree/main/arkdep-build.d) or [Codeberg](https://codeberg.org/arkanelinux/arkdep/src/branch/main/arkdep-build.d). If you have Arkane Linux already installed these configs can also be found locally in `/etc/arkdep`.
+
+To build one of these configs clone the repo, navigate to the root of the repo and run `arkdep-build arkanelinux`, or substitute `arkanelinux` with the name of another config.
