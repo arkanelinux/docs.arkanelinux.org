@@ -8,7 +8,6 @@ Arkane Linux primarily serves as a reference implementation, development environ
 ## Getting started
 - If you are interested in learning how to use Arkdep as a user refer to the [Arkdep usage page](/arkdep/arkdep/).
 - If you want to learn how to build your own images refer to the [Arkdep-build usage page](/arkdep/arkdep-build/).
-- If you want to learn how to set up an image repository refer to the [Arkdep repository page](/arkdep/arkdep-repository).
 
 ## The story so far
 Arkane started off with me exploring the Arch Linux build tools, once again impressed by the flexibility of Arch and its toolstack I quickly decided to take it further and mature this experiment in to a proper Arch Linux-based distro. And this is the point at which we are now, Arkane is taking shape nicely and nearing the beta stage.
