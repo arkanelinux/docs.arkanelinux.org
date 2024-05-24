@@ -1,6 +1,13 @@
 # os-installer-arkdep patch notes
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
+## v2.4
+- Code and config cleanups
+
+## v2.3
+- Code and config cleanups
+- Support the latest version of arkdep
+
 ## v2.2
 - No longer add dconf files via the overlay, these files are now included in the images if relevant
 

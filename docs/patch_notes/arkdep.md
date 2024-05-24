@@ -1,10 +1,16 @@
 # Arkdep patch notes
 
+## 2024.05.24
+- Miscellaneous code cleanup, fixes and refactors
+- Default deploy\_keep changed to 3
+- arkdep-build now checks if sufficient storage is available before building
+
 ## 2024.05.01
 - Add option to remove tarball after deployment is finished
 - Btrfs receive now reads images from stdin instead of from disk
 - Add support for migrations
 - A tiny bit of code and terminal output cleanup
+- arkdep-build now performs builds inside of a disk image
 
 ## 2024.04.21
 - Documentation has been moved to manpages
