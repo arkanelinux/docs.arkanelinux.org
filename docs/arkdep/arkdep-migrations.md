@@ -2,7 +2,7 @@
 
 Through migrations Arkdep is capable of performing major configuration updates to the system without user intervention.
 
-Migrations can be made for both major and minor config changes, to ensure a user does not skip a migration they should be the last update provided for a variant, eg. `customlinuz`. Once a migration is completed you should switch the user over to a new branch such as `customlinux-v2` by changing `repo_default_image` in the `/arkdep/config` file.
+Migrations can be made for both major and minor config changes, to ensure a user does not skip a migration they should be the last update provided for a variant, eg. `customlinux`. Once a migration is completed you should switch the user over to a new branch such as `customlinux-v2` by changing `repo_default_image` in the `/arkdep/config` file.
 
 # Arkdep deploy
 
