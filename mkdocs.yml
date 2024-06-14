@@ -20,3 +20,4 @@ nav:
   - Patch Notes:
     - 'arkdep': patch_notes/arkdep.md
     - 'os-installer-arkdep': patch_notes/osi-arkdep.md
+    - 'Arkane Linux': patch_notes/arkane.md
