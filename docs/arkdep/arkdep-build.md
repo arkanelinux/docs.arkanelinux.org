@@ -14,6 +14,7 @@ arkdep-build.d
 |  ├── package.list		    # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
 |  ├── pacman.conf		    # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
 |  ├── type         	    # Plain text file, for configs of the Arch type should contain `archlinux`
+|  ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
 |  ├── extensions		    # (Optional) Directory for custom scripts
 |     ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
 |     ├── post_install.sh	    # (Optional) Custom bash script which runs after system installation is finished
@@ -29,6 +30,7 @@ arkdep-build.d
 Note that `bootstrap.list` and `package.list` may not contain any whitespaces or special characters.
 
 ## Spinning a custom image
+
 First make a copy of one of the existing arkdep-build configurations in to a directory named `arkdep-build.d`;
 
 ```console
@@ -56,6 +58,7 @@ sudo arkdep deploy cache aaabbbccc
 ```
 
 ## Extensions
+
 Arkdep-build is build in such a way that it maintains compatibility with existing software repositories, build extensions allow you to make changes to the system at various steps during the build process. Because Arkdep managed systems are not supposed to install packages using their native package manager after deployment you are free to move, remove or change anything in the system with no fear of breakages.
 
 `post_bootstrap.sh` is sourced by Arkdep-build after it finished bootstrapping the base system and overlaying `overlay/post_bootstrap`.
@@ -74,7 +77,22 @@ These scripts will have access to all the same information Arkdep-build utilizes
 | `$workdir` | Working directory to which the root filesystem is installed, typically set to `$build_image_mountpoint/rootfs` |
 | `$variant` | Name of the image variant we are building, `arkdep-build.d/$variant` would resolve the variant configuration location |
 
+## Update.sh
+
+Update.sh is entirely optional, it can be utilized to perform minor system updates to components Arkdep does not manage. It behaves the same way as a migration, it only differs in that it is run as an extension of a normal deployment and it is indented to only perform minor non-invasive tweaks and changes to the system.
+
+It has access to the following variables;
+
+| Variable | Usecase |
+| --- | --- |
+| `${data[0]}` | The image name, eg. `aabbcc123` |
+| `${data[1]}` | The tarball compression method, eg. `zst` |
+| `${data[2]}` | Image SHA checksum |
+| `$arkdep_dir` | Arkdep's location on the filesystem, eg. `/arkdep` |
+| `$arkdep_boot` | The boot directory location on the filesystem, eg. `/boot` |
+
 ## Reference material
+
 The primary Arkane Linux configuration and several testing one can be found on either [Github](https://github.com/arkanelinux/arkdep/tree/main/arkdep-build.d) or [Codeberg](https://codeberg.org/arkanelinux/arkdep/src/branch/main/arkdep-build.d). If you have Arkane Linux already installed these configs can also be found locally in `/etc/arkdep`.
 
 To build one of these configs clone the repo, navigate to the root of the repo and run `arkdep-build arkanelinux`, or substitute `arkanelinux` with the name of another config.
