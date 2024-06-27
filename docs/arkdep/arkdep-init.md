@@ -1,4 +1,4 @@
-### Set up Arkdep on a new system
+# Set up Arkdep on a new system
 
 System requirements;
 - `/` is partitioned with btrfs
