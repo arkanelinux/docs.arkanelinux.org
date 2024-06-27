@@ -15,7 +15,8 @@ nav:
     - 'Arkdep usage': arkdep/arkdep.md
     - 'Arkdep-build usage': arkdep/arkdep-build.md
     - 'Arkdep repository': arkdep/arkdep-repository.md
-    - 'Arkdep migrations': arkdep/arkdep-migrations.md
+    - 'Arkdep migrations and updates': arkdep/arkdep-migrations.md
+    - 'Set up Arkdep on a new system': arkdep/arkdep-init.md
     - 'How do I...': arkdep/how-do-i.md
   - Patch Notes:
     - 'arkdep': patch_notes/arkdep.md
