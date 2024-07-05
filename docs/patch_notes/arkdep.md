@@ -1,5 +1,9 @@
 # Arkdep patch notes
 
+## 2024.07.05
+- `get-available` now scrapes available variants from the web page, list file has been dropped
+- `backup_user_accounts` now enabled by default
+
 ## 2024.05.24
 - Miscellaneous code cleanup, fixes and refactors
 - Default deploy\_keep changed to 3

@@ -1,6 +1,13 @@
 # os-installer-arkdep patch notes
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
+## v2.6
+- Default Dracut config updated
+- Wait for root to unmount
+
+## v2.5
+- Us gnome-initial-setup for account creation
+
 ## v2.4
 - Code and config cleanups
 
