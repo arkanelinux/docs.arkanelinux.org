@@ -1,5 +1,9 @@
 # Arkane Linux patch notes
 
+## 2024.07.08
+- Fix several bugs which prevented installing to partition
+- Fix UUID detection for NVMe drives which would cause no UUID to be configured in the LUKS rootfs kernel parameters
+
 ## 2024.07.07
 - Attempt to set vconsole keymap during install
 

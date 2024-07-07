@@ -1,6 +1,10 @@
 # os-installer-arkdep patch notes
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
+## v2.8
+- Fix uuid detection for nvme
+- Handle `OSI_DEVICE_IS_PARTITION` where required
+
 ## v2.7
 - Attempt to set vconsole keymap
 
