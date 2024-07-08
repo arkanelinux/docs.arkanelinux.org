@@ -1,6 +1,9 @@
 # os-installer-arkdep patch notes
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
+## v2.9
+- `rd.auto=0` added to kernel params to work around Dracut + LUKS bug
+
 ## v2.8
 - Fix uuid detection for nvme
 - Handle `OSI_DEVICE_IS_PARTITION` where required

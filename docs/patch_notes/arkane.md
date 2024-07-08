@@ -1,5 +1,8 @@
 # Arkane Linux patch notes
 
+## 2024.07.09
+- `rd.auto=0` added to kernel params on new installs to work around Dracut + LUKS bug
+
 ## 2024.07.08
 - Fix several bugs which prevented installing to partition
 - Fix UUID detection for NVMe drives which would cause no UUID to be configured in the LUKS rootfs kernel parameters
