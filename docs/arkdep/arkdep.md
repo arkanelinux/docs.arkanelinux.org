@@ -98,7 +98,17 @@ The overlay should be structured as a root filesystem, for example `/arkdep/over
 
 If files are added to the overlay outside of `/arkdep/overlay/etc` arkdep will temporarily unlock the root filesystem for editing.
 
-The overlay is not suitable for copying files to `/opt`, `/srv`, `/root`, `/usr/local`, `/usr/lib/locale` and `/etc/NetworkManager/system-connections`. These paths are all stored on `/var` or are separate subvolumes which are shared between all deployments, they are not mounted at deploy time inside of the new deployments. If you wish to add files to these directories you can manually add them to the directories on your current deployment, they will carry over when a new deployment is made or when you do a rollback to an older deployment.
+Certain locations on the filesystem are symlinked to `/var` for they need to be writable, to write files to these locations instead add them  to their `/var`-based directory.
+
+| Directory | Actual location | Note |
+| --- | --- | --- |
+| `/opt` | `/var/opt` | |
+| `/srv` | `/var/srv` | |
+| `/usr/local` | `/var/usrlocal` | |
+| `/usr/lib/locale` | `/var/usrliblocale` | |
+| `/etc/NetworkManager/system-connections` | `/var/nm-system-connections` | Only if dir exists in image |
+
+`/home`, `/root` and `/var/lib/flatpak` are shared directories which get mounted during boot, they are not available at image deploy time.
 
 ## Keys
 Arkdep will if able attempt to verify image integrity and trust using GnuPG. For this behavior to trigger the following has to be true;
