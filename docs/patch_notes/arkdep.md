@@ -1,5 +1,14 @@
 # Arkdep patch notes
 
+## 2024.07.26
+- Perform cleanup on migration and update scripts
+- Fix delete action asking for confirmation when deploy has been called
+
+## 2024.07.17
+- Implement interactive mode
+- Add `ARKDEP_CONFIRM` to allow for the skipping of interactive prompts
+- Implement diff option
+
 ## 2024.07.05
 - `get-available` now scrapes available variants from the web page, list file has been dropped
 - `backup_user_accounts` now enabled by default
