@@ -1,5 +1,8 @@
 # Arkdep patch notes
 
+## 2024.07.27
+- Replace `var_migrate_files` with `migrate_files`
+
 ## 2024.07.26
 - Perform cleanup on migration and update scripts
 - Fix delete action asking for confirmation when deploy has been called
