@@ -25,7 +25,6 @@ The following changes are applied to the filesystem through symlinking;
 - `/srv` is symlinked to `/var/srv`
 - `/usr/local` is symlinked to `/var/usrlocal`
 - `/usr/lib/locale` is symlinked to `/var/usrliblocale`
-- `/etc/NetworkManager/system-connections` is symlinked to `/var/nm-system-connections`
 
 The following changes are applied through subvolumes;
 
