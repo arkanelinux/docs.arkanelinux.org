@@ -1,5 +1,11 @@
 # Arkdep patch notes
 
+## 2024.08.15
+- Added support for code comments in package list files
+- Dropped nm-system-connections symlink
+- Add lockfile to prevent multiple simultaneously active instances
+- Various miscellaneous fixes and cleanup
+
 ## 2024.07.27
 - Replace `var_migrate_files` with `migrate_files`
 

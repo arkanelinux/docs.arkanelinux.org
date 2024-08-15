@@ -1,5 +1,9 @@
 # Arkane Linux patch notes
 
+## 2024.08.15
+- Replaced gnome-pictures with Fotema
+- Replaced Celluloid with Showtime
+
 ## 2024.07.09
 - `rd.auto=0` added to kernel params on new installs to work around Dracut + LUKS bug
 
