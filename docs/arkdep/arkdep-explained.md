@@ -18,7 +18,6 @@ The average user may only ever use `arkdep` if they are not intend on building t
         - `/srv` is symlinked to `/var/srv`
         - `/usr/local` is symlinked to `/var/usrlocal`
         - `/usr/lib/locale` is symlinked to `/var/usrliblocale`
-        - `/etc/NetworkManager/system-connections` is symlinked to `/var/nm-system-connections`
     - The local pacman cache will be wiped
     - passwd, shadow and group files are copied to `/usr/lib`, the root user is removed from these files
     - The /etc passwd, shadow and group files are changed to only contain the root user
