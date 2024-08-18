@@ -45,15 +45,15 @@ Lets assume we are performing a simple no-parameter-provided deployment with `ar
 
 2. The topmost entry is assumed by Arkdep to be the latest version and it will be downloaded.
 2. If the image is already in the Arkdep cache the download will be skipped. If a .run file exists for this image in cache the download will be resumed.
-2. If configured to do so Arkdep will also attempt to download a gpg signature. If available this signature is used to ensure the integrity of the download. If no such file can be downloaded or this feature is disabled it will instead verify download integrity using the checksum provided in the database, if a GPG signature is configured to be required it will fail with an error.
+2. If configured to do so Arkdep will also attempt to download a gpg signature. If available, this signature is used to ensure the integrity of the download. If the signature can not be downloaded or this feature is disabled it will instead verify download integrity using the checksum provided in the database, if a GPG signature is configured to be required it will fail with an error.
 2. The images will now be extracted and deployed one at a time. First rootfs which in this example is deployed to `/arkdep/deployments/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/rootfs`, rootfs is temporarily unlocked to allow for the writing of the etc and var subvolumes. Then etc which is deployed to `rootfs/etc` and lastly var which is deployed to `rootfs/var`. The var and etc subvolumes are both unlocked before root is locked again.
 2. `/arkdep/overlay` will be copied to the new deployment. If anything is added to the overlay other than an etc directory root will be temporarily unlocked to allow for these changes to be overlayed.
-2. Files and folders defined in `var_migrate_files` setting will be copied from the current var subvolume to the newly deployed var.
+2. Files and folders defined in `migrate_files` setting will be copied from the current deployment to the new deployment.
 2. Now that the deployment of the subvolumes is done Arkdep will add a systemd-boot bootloader entry for it in `/boot/loader/entries/`.
 2. The vmlinuz from the first found kernel is copied to `/boot/arkdep/aa07d220f08ea7f6260bc94df075bdc27c3e992b48/vmlinuz`
 2. Using dracut an initramfs is generated inside of the deployments unique boot directory.
-2. If provided scripts in `/arkdep/extensions` will be executed, these scripts can be used to apply additional changes or customization to your deployment and extend Arkdep's default behavior.
+2. If provided, scripts in `/arkdep/extensions` will be executed, these scripts can be used to apply additional changes or customization to your deployment and extend Arkdep's default behavior.
 2. A tracker entry for the new deployment will be written to the `/arkdep/tracker` file, deployments listed inside of this file Arkdep will consider to be installed and under its management.
 2. A bootloader entry is added to systemd-boot.
-2. The new bootloader entry it is made the default bootloader entry using EFI variables.
-2. Arkdep may now perform a cleanup step to remove old deployments.
+2. Using EFI variables the new bootloader entry is marked as default.
+2. Arkdep may now perform a cleanup and old deployments outside of `deploy_keep`.
