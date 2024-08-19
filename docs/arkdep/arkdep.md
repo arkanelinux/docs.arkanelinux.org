@@ -116,7 +116,7 @@ Arkdep will if able attempt to verify image integrity and trust using GnuPG. For
 - GPG checking is not disabled in the config file
 - A signature is successfully downloaded from the repos
 
-A GPG signature is by default optional, if available Arkdep will use it instead of the sha1sum to verify image integrity. Arkdep can be configured to require these files to be provided by setting `gpg_signature_check` to `2` in the config file. If configured to require GPG checking Arkdep will error if the signature is not provided by the image repositories.
+A GPG signature is by default optional, if available Arkdep will use it instead of the sha checksum to verify image integrity. Arkdep can be configured to require these files to be provided by setting `gpg_signature_check` to `2` in the config file. If configured to require GPG checking Arkdep will error if the signature is not provided by the image repositories.
 
 Keys can be exported and added to the keyring like so, this process can be repeated to add multiple keys;
 ```console
