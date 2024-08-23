@@ -1,6 +1,9 @@
 # os-installer-arkdep patch notes
 These are the configuration scripts for os-installer used to install the immutable variant of Arkane Linux.
 
+## v2.11
+- usrliblocale setup has been dropped
+
 ## v2.10
 - Boot partition is now configured and mounted through fstab with LABEL
 
