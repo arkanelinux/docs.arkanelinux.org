@@ -1,6 +1,6 @@
 # Arkane Linux patch notes
 
-## 2024.08.15
+## 2024.08.23
 - arkdep\_bin has been renamed to abin
 - abin added to secure\_path for sudo
 - usrliblocale has been dropped in favor of pregenerated glibc-locales
