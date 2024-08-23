@@ -4,7 +4,7 @@
 - arkdep\_bin has been renamed to abin
 - abin added to secure\_path for sudo
 - usrliblocale has been dropped in favor of pregenerated glibc-locales
-- 'var/nm-system-connections' has been dropped
+- `var/nm-system-connections` has been dropped
 - `var/db` is now also migrated
 - `var/lib/power-profiles-daemon` is now also migrated
 - gnome-calendar is now shipped as Flatpak
