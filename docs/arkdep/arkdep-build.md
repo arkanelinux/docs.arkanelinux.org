@@ -4,6 +4,25 @@ Do you like the technology but do not like the provided images? No problem! You 
 
 ## File structure
 
+### debian type
+```text
+arkdep-build.d
+├── customlinux			    # Directory carrying a custom name
+|  ├── overlay              # (Optional) Parent directory of post_bootstrap and post_install overlays
+|  |  ├── post_bootstrap	# (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
+|  |  ├── post_install  	# (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
+|  ├── package.list		    # (Optional) Plain text file containing list of packages installed by apt in a chroot, used for aditional package installations
+|  ├── repo     		    # Plain text file, contains URL to apt package repository
+|  ├── suite     		    # Plain text file, contains name of package suite to be installed
+|  ├── type         	    # Plain text file, for configs of the Debian type should contain `debian`
+|  ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
+|  ├── extensions		    # (Optional) Directory for custom scripts
+|     ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
+|     ├── post_install.sh	    # (Optional) Custom bash script which runs after system installation is finished
+|     ├── post_build.sh	        # (Optional) Custom bash script which runs after image creation is fully finished
+```
+
+### archlinux type
 ```text
 arkdep-build.d
 ├── customlinux			    # Directory carrying a custom name
@@ -23,7 +42,7 @@ arkdep-build.d
 
 - `bootstrap.list` contains a list of packages installed during the bootstrapping process using pacstrap.
 - `package.list` contains a list of packages which will be installed after the bootstrapping process using a chrooted pacman.
-- `type` is expected to be present but right now only accepts `archlinux` and `migration`, the file is used by arkdep-build to determine which method of building it should employ for the given configuration, in the future support for more distro families will be added.
+- `type` is used by arkdep-build to determine which method of building it should employ for the given configuration.
 - The contents of the subdirectories located in `overlay` are copied to root after their asociated build step completes, use the overlay to add custom config files or to enable systemd services.
 - `extensions` and its children are optional, these are bash scripts run by arkdep-build if provided, they can be used to introduce custom functionality in to arkdep-build.
 
