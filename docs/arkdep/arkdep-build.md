@@ -12,8 +12,7 @@ arkdep-build.d
 |  |  ├── post_bootstrap	# (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
 |  |  ├── post_install  	# (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
 |  ├── package.list		    # (Optional) Plain text file containing list of packages installed by apt in a chroot, used for aditional package installations
-|  ├── repo     		    # Plain text file, contains URL to apt package repository
-|  ├── suite     		    # Plain text file, contains name of package suite to be installed
+|  ├── apt.conf     		# Plain text file, contains repo URL and package suite, eg. `http://deb.debian.org/debian sid`
 |  ├── type         	    # Plain text file, for configs of the Debian type should contain `debian`
 |  ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
 |  ├── extensions		    # (Optional) Directory for custom scripts
