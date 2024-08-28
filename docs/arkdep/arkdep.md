@@ -106,7 +106,6 @@ Certain locations on the filesystem are symlinked to `/var` for they need to be 
 | `/srv` | `/var/srv` | |
 | `/usr/local` | `/var/usrlocal` | |
 | `/usr/lib/locale` | `/var/usrliblocale` | |
-| `/etc/NetworkManager/system-connections` | `/var/nm-system-connections` | Only if dir exists in image |
 
 `/home`, `/root` and `/var/lib/flatpak` are shared directories which get mounted during boot, they are not available at image deploy time.
 
