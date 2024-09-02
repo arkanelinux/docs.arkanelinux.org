@@ -46,9 +46,7 @@ sudo arkdep deploy cache aaabbbccc
 ```
 
 ## Rolling back deployments
-Older deployments can always be booted in to using their systemd-boot bootloader entries.
-
-Permanently rolling back to another image is done by manually calling systemd-boot's `bootctl` to set a specific config located in `/boot/loader/entries` as the default through EFI variables which are read by systemd-boot.
+Older deployments can always be booted in to using their systemd-boot bootloader entries. If an update fails the system will automatically fall back after 3 failed boots to a known good deployment.
 
 ```console
 sudo bootctl set-default aaabbbccc

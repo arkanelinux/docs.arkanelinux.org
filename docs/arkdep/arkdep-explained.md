@@ -54,6 +54,5 @@ Lets assume we are performing a simple no-parameter-provided deployment with `ar
 2. Using dracut an initramfs is generated inside of the deployments unique boot directory.
 2. If provided, scripts in `/arkdep/extensions` will be executed, these scripts can be used to apply additional changes or customization to your deployment and extend Arkdep's default behavior.
 2. A tracker entry for the new deployment will be written to the `/arkdep/tracker` file, deployments listed inside of this file Arkdep will consider to be installed and under its management.
-2. A bootloader entry is added to systemd-boot.
-2. Using EFI variables the new bootloader entry is marked as default.
-2. Arkdep may now perform a cleanup and old deployments outside of `deploy_keep`.
+2. A timestamped bootloader entry is added to systemd-boot with systemd-bless-boot support.
+2. Arkdep may now perform a cleanup on old deployments outside of `deploy_keep`.

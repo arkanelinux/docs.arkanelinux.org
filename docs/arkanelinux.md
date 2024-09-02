@@ -44,10 +44,8 @@ Some notable quirks you should be aware of;
 
 - `/etc` is a separate subvolume living inside of the root of the deployment, it is writable by default
 - `/var` is a separate subvolume living inside of the root of the deployment, it is writable by default
-- Any changes outside of `/home` or by arkdep copied files and directories do not carry over between deployments
+- Any changes outside of `/home` or files/folders defined in migrate\_files do not carry over between deployments
 - `/home` is are shared between all deployments and are stored in `/arkdep/shared/home`
 - `/root` is are shared between all deployments and are stored in `/arkdep/shared/root`
 - `/var/lib/flatpak` is are shared between all deployments and are stored in `/arkdep/shared/flatpak`
 - Adding any overlay files outside of `/arkdep/overlay/etc` will make arkdep temporarily unlock the root subvolume for editing
-- The default bootloader entry is changed using UEFI variables on deployment completion, manually use `bootctl set-default` to change the default deployment to roll back to an older deployment and make it default, or select said older deployment in the systemd-boot bootloader interface
-
