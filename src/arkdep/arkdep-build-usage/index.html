@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta property="og:title" content="Arkane Linux Documentation">
+		<meta property="og:description" content="Arkane Linux documentation, patch notes and news.">
+		<meta property="og:image" content="https://arkanelinux.org/img/branding/arkane-logo.webp">
+		<title>Arkane Linux docs - Arkdep-build usage</title>
+		<link rel="stylesheet" href="/style/main.css">
+		<link rel="stylesheet" href="/style/fonts.css">
+		<link rel="stylesheet" href="/style/responsive.css">
+	</head>
+	<body>
+    <header>
+    <div class="header_container">
+      <div class="project_name">
+      <p>Arkane Linux</p>
+      </div>
+      <div class="nav">
+	      <a href="https://arkanelinux.org">Home</a>
+	      <a href="https://arkanelinux.org/downloads">Download</a>
+	      <a href="/" class="nav_selected">Docs</a>
+	      <a href="https://github.com/arkanelinux/" target="_blank">GitHub</a>
+      </div>
+    </div>
+    </header>
+		<div class="center_container">
+			<div class="main_container">
+				<div class="navigator_container">
+					<div class="navigator">
+						<ul>
+							<li>
+								<span>Arkane Linux</span>
+								<ul>
+									<li>
+										<a href="/">About</a>
+									</li>
+									<li>
+										<a href="/lore">Lore</a>
+									</li>
+									<li>
+										<a href="/technical-overview">Technical overview</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span>Arkdep</span>
+								<ul>
+									<li>
+										<a href="/arkdep/arkdep-usage">Arkdep usage</a>
+									</li>
+									<li>
+										<a href="/arkdep/arkdep-build-usage" id="navigator_selected">Arkdep-build usage</a>
+									</li>
+									<li>
+										<a href="/arkdep/repository">Arkdep repository</a>
+									</li>
+									<li>
+										<a href="/arkdep/migrations">Arkdep migrations</a>
+									</li>
+									<li>
+										<a href="/arkdep/installation">Installation</a>
+									</li>
+									<li>
+										<a href="/arkdep/how-it-works">How it works</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span>Patch notes</span>
+								<ul>
+									<li>
+										<a href="/patches/arkdep">Arkdep</a>
+									</li>
+									<li>
+										<a href="/patches/arkanelinux">Arkane Linux</a>
+									</li>
+									<li>
+										<a href="/patches/os-installer-arkdep">os-installer-arkdep</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main">
+					<h1>Arkdep-build usage</h1>
+					<p>Do you like the technology but do not like the provided images? No problem! You can easily build and deploy custom images should you desire to do so.</p>
+					<h1>File structure</h1>
+					<h2>File structure archlinux type</h2>
+					<div class="codeblock">arkdep-build.d
+├── customlinux             # Directory carrying a custom name
+   ├── overlay              # (Optional) Parent directory of post_bootstrap and post_install overlays
+   |  ├── post_bootstrap    # (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
+   |  ├── post_install      # (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
+   ├── bootstrap.list       # Plain text file containing list of packages installed by pacstrap, used for installing the base system
+   ├── package.list         # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
+   ├── pacman.conf          # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
+   ├── type                 # Plain text file, for configs of the Arch type should contain `archlinux`
+   ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
+   ├── extensions           # (Optional) Directory for custom scripts
+      ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
+      ├── post_install.sh       # (Optional) Custom bash script which runs after system installation is finished
+      ├── post_build.sh         # (Optional) Custom bash script which runs after image creation is fully finished</div>
+					<h2>File structure debian type</h2>
+					<div class="codeblock_notice">⚠ Debian support is very experimental</div>
+					<div class="codeblock codeblock_noticed">arkdep-build.d
+├── customlinux             # Directory carrying a custom name
+   ├── overlay              # (Optional) Parent directory of post_bootstrap and post_install overlays
+   |  ├── post_bootstrap    # (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
+   |  ├── post_install      # (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
+   ├── package.list         # (Optional) Plain text file containing list of packages installed by apt in a chroot, used for aditional package installations
+   ├── apt.conf             # Plain text file, contains repo URL and package suite, eg. `http://deb.debian.org/debian sid`
+   ├── type                 # Plain text file, for configs of the Debian type should contain `debian`
+   ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
+   ├── extensions           # (Optional) Directory for custom scripts
+     ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
+      ├── post_install.sh       # (Optional) Custom bash script which runs after system installation is finished
+      ├── post_build.sh         # (Optional) Custom bash script which runs after image creation is fully finished</div>
+					<h1>Building a custom image</h1>
+					<p>First make a copy of one of the existing arkdep-build configurations in to a directory named arkdep-build.d;</p>
+					<div class="codeblock">mkdir arkdep-build.d
+cp -r /etc/arkdep/test-arkanelinux-kde arkdep-build.d/
+
+# Alternatively, Git clone the latest version from the Arkdep repos
+git clone https://github.com/arkanelinux/arkdep.git</div>
+					<p>Next make your edits to the configuration files in <code>arkdep-build.d/test-arkanelinux-kde</code>, or another configuration of your choosing. You may also rename the <code>test-arkanelinux-kde</code> directory after having copied it.</p>
+					<div class="codeblock">mv arkdep-build.d/test-arkanelinux-kde arkdep-build.d/customlinux</div>
+					<p>Once all the desired changes have been made you can build a new image by navigating to arkdep-build.d's parant directory and running arkdep-build.</p>
+					<div class="codeblock">sudo arkdep-build customlinux</div>
+					<p>The image will now start build, when it has finished the final image will be placed inside of a directory called <code>target</code> located in the <code>arkdep-build.d</code> parent directory. To then install it without using an external repository copy the achive in to the <code>/arkdep/cache</code> directory and define cache as the image variant when doing a deployment.</p>
+					<div class="codeblock">sudo cp target/aaabbbccc.tar.zst /arkdep/cache/
+sudo arkdep deploy cache aaabbbccc</div>
+					<h1>Extensions</h1>
+					<p>Arkdep-build is written in such a way that it maintains compatibility with existing distro software repositories, it request no immutable-aware packages to function.</p>
+					<p>Build extensions allow you to make changes to the system at various steps during the build process, they can be used to make changes to the operating system as a workaround to the limitations of traditional distros when being forced in to an immutable context. Because Arkdep managed systems are not supposed to install packages using their native package manager after deployment you are free to move, remove or change anything in the system with no fear of breakages.</p>
+					<p>Build extensions are typically not required, the main Arkdep-build script should have compatibility with most, if not all, distros within a distro family. However odd software configurations not supported by Arkdep-build may require manual intervention to function in an immutable context or during the build stage, for this you can use build extensions.</p>
+					<p>Extensions are placed in the <code>arkdep-build.d/test-arkanelinux-kde/extensions/</code> directory, there are three scripts which Arkdep-build will source during the build process if available.
+					<ul>
+						<li><code>extensions/post_bootstrap.sh</code> is sourced by Arkdep-build after it finished bootstrapping the base system and overlaying overlay/post_bootstrap.</li>
+						<li><code>extensions/post_install.sh</code> is sourced by Arkdep-build after installing all system packages and overlaying <code>overlay/post_install/</code> but before it performs generic modifications to the system to make it immutable compatible.</li>
+						<li><code>extensions/post_build.sh</code> is sourced by Arkdep-build once the build is fully completed and exported, but before it performs a cleanup.</li>
+					</ul>
+					<p>These scripts will have access to all the same information Arkdep-build utilizes for image creation.</p>
+					<table>
+						<tr>
+							<th>Variable</th>
+							<th>Explanation</th>
+						</tr>
+						<tr>
+							<td><code>${data[0]}</code></td>
+							<td>The image name, eg. <code>aabbcc123</code></td>
+						</tr>
+						<tr>
+							<td><code>${data[1]}</code></td>
+							<td>The tarball compression method, eg. <code>zst</code></td>
+						</tr>
+						<tr>
+							<td><code>${data[2]}</code></td>
+							<td>Image SHA checksum, maybe any SHA variant</td>
+						</tr>
+						<tr>
+							<td><code>$arkdep_dir</code></td>
+							<td>Arkdep's location on the filesystem, eg. <code>/arkdep</code></td>
+						</tr>
+						<tr>
+							<td><code>$arkdep_boot</code></td>
+							<td>The boot directory location on the filesystem, eg. <code>/boot</code></td>
+						</tr>
+					</table>
+					<h1>Reference material</h1>
+					<p>The primary Arkane Linux configuration and several testing one can be found on either <a href="https://github.com/arkanelinux/arkdep/tree/main/arkdep-build.d" target="_blank">Github</a> or <a href="https://codeberg.org/arkanelinux/arkdep/src/branch/main/arkdep-build.d" target="_blank">Codeberg</a>. If you have Arkane Linux already installed these configs can also be found locally in <code>/etc/arkdep</code>.</p>
+
+To build one of these configs clone the repo, navigate to the root of the repo and run arkdep-build arkanelinux, or substitute arkanelinux with the name of another config.
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

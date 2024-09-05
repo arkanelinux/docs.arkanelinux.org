@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta property="og:title" content="Arkane Linux Documentation">
+		<meta property="og:description" content="Arkane Linux documentation, patch notes and news.">
+		<meta property="og:image" content="https://arkanelinux.org/img/branding/arkane-logo.webp">
+		<title>Arkane Linux docs - About</title>
+		<link rel="stylesheet" href="/style/main.css">
+		<link rel="stylesheet" href="/style/fonts.css">
+		<link rel="stylesheet" href="/style/responsive.css">
+	</head>
+	<body>
+    <header>
+    <div class="header_container">
+      <div class="project_name">
+      <p>Arkane Linux</p>
+      </div>
+      <div class="nav">
+	      <a href="https://arkanelinux.org">Home</a>
+	      <a href="https://arkanelinux.org/downloads">Download</a>
+	      <a href="/" class="nav_selected">Docs</a>
+	      <a href="https://github.com/arkanelinux/" target="_blank">GitHub</a>
+      </div>
+    </div>
+    </header>
+		<div class="center_container">
+			<div class="main_container">
+				<div class="navigator_container">
+					<div class="navigator">
+						<ul>
+							<li>
+								<span>Arkane Linux</span>
+								<ul>
+									<li>
+										<a href="/">About</a>
+									</li>
+									<li>
+										<a href="/lore">Lore</a>
+									</li>
+									<li>
+										<a href="/technical-overview">Technical overview</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span>Arkdep</span>
+								<ul>
+									<li>
+										<a href="/arkdep/arkdep-usage">Arkdep usage</a>
+									</li>
+									<li>
+										<a href="/arkdep/arkdep-build-usage">Arkdep-build usage</a>
+									</li>
+									<li>
+										<a href="/arkdep/repository">Arkdep repository</a>
+									</li>
+									<li>
+										<a href="/arkdep/migrations">Arkdep migrations</a>
+									</li>
+									<li>
+										<a href="/arkdep/installation" id="navigator_selected">Installation</a>
+									</li>
+									<li>
+										<a href="/arkdep/how-it-works">How it works</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span>Patch notes</span>
+								<ul>
+									<li>
+										<a href="/patches/arkdep">Arkdep</a>
+									</li>
+									<li>
+										<a href="/patches/arkanelinux">Arkane Linux</a>
+									</li>
+									<li>
+										<a href="/patches/os-installer-arkdep">os-installer-arkdep</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main">
+					<h1>Installing Arkdep on a new system</h1>
+					<h2>Systemd requirements</h2>
+					<ul>
+						<li><code>/</code> is partitioned with btrfs.</li>
+						<li><code>/boot</code> mounted boot partition.</li>
+						<li>512MiB boot partition for max 2 deployments, 1GiB recommended.</li>
+						<li>Systemd-boot bootloader is installed and configured as the primary bootloader.</li>
+						<li><code>dracut</code>, <code>wget</code>, <code>curl</code>, <code>gnupg</code> and <code>btrfs-progs</code> are installed.</li>
+					</ul>
+					<h2>Image building system requirements</h2>
+					<ul>
+						<li><code>arch-install-scripts</code> and <code>btrfs-progs</code> are installed.</li>
+					</ul>
+					<h2>Initializing Arkdep</h2>
+					<p>The following command will initialize Arkdep, it will deploy a subvolume containing all Arkdep related files excluding kernels and initramfs to <code>/arkdep</code>. Kernel and initramfs will instead be stored in <code>/boot/arkdep</code> upon image deployment.</p>
+					<div class="codeblock"># To init on the current root
+sudo arkdep init
+
+# Alternatively to init in to a specific directory
+# If the ESP is not mounted underneath $ARKDEP_ROOT/boot, manually define it with ARKDEP_BOOT
+sudo ARKDEP_ROOT=/target/dir arkdep init</div>
+					<h2>Prepping the overlay</h2>
+					<p>Once Ardep has been initialized you should prepare the overlay located at <code>/arkdep/overlay</code>. The overlay is copied directly on to the root filesystem of a new deployment, create directories inside of it as-if it were a root filesystem. For example, <code>/arkdep/overlay/etc</code> will be your <code>/etc</code> folder.</p>
+					<p>You will most likely wish to add the following to the overlay;</p>
+					<ul>
+						<li>passwd, shadow, group, subgid and subuid files containing only entries for root and normal user accounts, system accounts will be supplied via the images and are stored separate in <code>/usr/lib</code>.</li>
+						<li>fstab file with at least <code>/home</code>, <code>/root</code> and <code>/arkdep</code> mounts configured, see the reference below.</li>
+						<li>(Optional) A locale.conf/locale.gen, localtime symlink and customized dracut configuration.</li>
+						<li>(Optional) Customize the default Arkdep configuration at /arkdep/config.</li>
+					</ul>
+					<div class="codeblock">LABEL=arkane_root	/home               btrfs     	rw,relatime,subvol=arkdep/shared/home,compress=zstd	0 1
+LABEL=arkane_root	/root               btrfs     	rw,relatime,subvol=arkdep/shared/root,compress=zstd	0 1
+LABEL=arkane_root	/arkdep             btrfs     	rw,relatime,subvol=arkdep,compress=zstd	                0 1
+LABEL=arkane_root	/var/lib/flatpak    btrfs     	rw,relatime,subvol=arkdep/shared/flatpak,compress=zstd	0 1</div>
+				<h2>Kernel parameters</h2>
+				<p>To customize default kernel parameters edit <code>/arkdep/templates/systemd-boot</code></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
