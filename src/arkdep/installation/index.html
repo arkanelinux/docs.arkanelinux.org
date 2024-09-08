@@ -120,6 +120,9 @@ LABEL=arkane_root	/arkdep             btrfs     	rw,relatime,subvol=arkdep,compr
 LABEL=arkane_root	/var/lib/flatpak    btrfs     	rw,relatime,subvol=arkdep/shared/flatpak,compress=zstd	0 1</div>
 				<h2>Kernel parameters</h2>
 				<p>To customize default kernel parameters edit <code>/arkdep/templates/systemd-boot</code></p>
+				<h2>For distro maintainers</h2>
+				<p>At the top of the <code>arkdep</code> script are defined as variables the defaults for the script. These defaults are used as a fallback and when initializing a new system for Arkdep. As a distro maintainer who is packaging Arkdep for their own project you will likely wish to customize these settings to match your preferences and repository configuration.</p>
+				<p>You can find a reference pkgbuild file <a href="https://github.com/arkanelinux/pkgbuild/tree/main/arkdep">here</a>.
 				</div>
 			</div>
 		</div>
