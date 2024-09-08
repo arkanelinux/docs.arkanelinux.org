@@ -112,7 +112,7 @@ sudo ARKDEP_ROOT=/target/dir arkdep init</div>
 						<li>passwd, shadow, group, subgid and subuid files containing only entries for root and normal user accounts, system accounts will be supplied via the images and are stored separate in <code>/usr/lib</code>.</li>
 						<li>fstab file with at least <code>/home</code>, <code>/root</code> and <code>/arkdep</code> mounts configured, see the reference below.</li>
 						<li>(Optional) A locale.conf/locale.gen, localtime symlink and customized dracut configuration.</li>
-						<li>(Optional) Customize the default Arkdep configuration at /arkdep/config.</li>
+						<li>(Optional) Customize the default Arkdep configuration at <code>/arkdep/config</code>.</li>
 					</ul>
 					<div class="codeblock">LABEL=arkane_root	/home               btrfs     	rw,relatime,subvol=arkdep/shared/home,compress=zstd	0 1
 LABEL=arkane_root	/root               btrfs     	rw,relatime,subvol=arkdep/shared/root,compress=zstd	0 1
