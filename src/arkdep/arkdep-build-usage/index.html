@@ -95,6 +95,7 @@
    |  ├── post_install      # (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
    ├── bootstrap.list       # Plain text file containing list of packages installed by pacstrap, used for installing the base system
    ├── package.list         # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
+   ├── depends.list         # (Optional) Plain text file containing filepaths of other variants used to extend package lists and overlays of current variant
    ├── pacman.conf          # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
    ├── type                 # Plain text file, for configs of the Arch type should contain `archlinux`
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
@@ -111,6 +112,7 @@
    |  ├── post_bootstrap    # (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
    |  ├── post_install      # (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
    ├── package.list         # (Optional) Plain text file containing list of packages installed by apt in a chroot, used for aditional package installations
+   ├── depends.list         # (Optional) Plain text file containing filepaths of other variants used to extend package lists and overlays of current variant
    ├── apt.conf             # Plain text file, contains repo URL and package suite, eg. `http://deb.debian.org/debian sid`
    ├── type                 # Plain text file, for configs of the Debian type should contain `debian`
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
@@ -170,6 +172,11 @@ sudo arkdep deploy cache aaabbbccc</div>
 							<td>The boot directory location on the filesystem, eg. <code>/boot</code></td>
 						</tr>
 					</table>
+					<h1>Dependencies</h1>
+					<p>Using <code>depends.list</code> Arkdep-build variants can define other variants as dependencies, these dependencies will extend the package lists and overlays of said variant with the contents of the defined variants.</p>
+					<p>The `depends.list` file contains simple file paths pointing at other variants located inside of <code>arkdep-build.d</code>, multiple dependencies can be defined.</p>
+					<div class="codeblock">test-arkanelinux-kde
+depends/arkanelinux-common</div>
 					<h1>Reference material</h1>
 					<p>The primary Arkane Linux configuration and several testing one can be found on either <a href="https://github.com/arkanelinux/arkdep/tree/main/arkdep-build.d" target="_blank">Github</a> or <a href="https://codeberg.org/arkanelinux/arkdep/src/branch/main/arkdep-build.d" target="_blank">Codeberg</a>. If you have Arkane Linux already installed these configs can also be found locally in <code>/etc/arkdep</code>.</p>
 
