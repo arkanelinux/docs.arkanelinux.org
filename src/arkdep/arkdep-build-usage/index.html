@@ -149,6 +149,38 @@ sudo arkdep deploy cache aaabbbccc</div>
 					<table>
 						<tr>
 							<th>Variable</th>
+							<th>Usecase</th>
+						</tr>
+						<tr>
+							<td><code>$build_image</code></td>
+							<td>Location of virtual Btrfs disk</td>
+						</tr>
+						<tr>
+							<td><code>$build_image_mountpoint</code></td>
+							<td>The mountpoint of the build image filesystem</td>
+						</tr>
+						<tr>
+							<td><code>$build_image_size<code></td>
+							<td>Size of the build image in syntax accepted by fallocate</td>
+						</tr>
+						<tr>
+							<td><code>$workdir</code></td>
+							<td>Working directory to which the root filesystem is installed, typically set to <code>$build_image_mountpoint/rootfs</code></td>
+						</tr>
+						<tr>
+							<td><code>$variant</code></td>
+							<td>Name of the image variant we are building, <code>arkdep-build.d/$variant</code> would resolve the variant configuration location</td>
+						</tr>
+						<tr>
+							<td><code>$variantdir</code></td>
+							<td>Location of variant</td>
+						</tr>
+					</table>
+					<h1>Update.sh</h1>
+					<p>Update.sh is used to perform minor changes to the system or handle minor breaking updates.</p>
+					<table>
+						<tr>
+							<th>Variable</th>
 							<th>Explanation</th>
 						</tr>
 						<tr>
