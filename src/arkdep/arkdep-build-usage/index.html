@@ -135,6 +135,8 @@ git clone https://github.com/arkanelinux/arkdep.git</div>
 					<p>The image will now start build, when it has finished the final image will be placed inside of a directory called <code>target</code> located in the <code>arkdep-build.d</code> parent directory. To then install it without using an external repository copy the achive in to the <code>/arkdep/cache</code> directory and define cache as the image variant when doing a deployment.</p>
 					<div class="codeblock">sudo cp target/aaabbbccc.tar.zst /arkdep/cache/
 sudo arkdep deploy cache aaabbbccc</div>
+					<h1>Variant configuration</h1>
+					<p>Almost anything may be removed or customized from the stock config according to your own preferences. However the system depends on <code>libnss-extrausers</code> and the <code>/etc/nsswitch.conf</code> to load the system user accounts stored in <code>/usr/lib/{passwd,shadow,group}</code>. An alternative implementation would be <a href="https://github.com/aperezdc/nss-altfiles">nss-altfiles</a>, which is utilized by Fedora Silverblue for this same purpose.</p>
 					<h1>Extensions</h1>
 					<p>Arkdep-build is written in such a way that it maintains compatibility with existing distro software repositories, it request no immutable-aware packages to function.</p>
 					<p>Build extensions allow you to make changes to the system at various steps during the build process, they can be used to make changes to the operating system as a workaround to the limitations of traditional distros when being forced in to an immutable context. Because Arkdep managed systems are not supposed to install packages using their native package manager after deployment you are free to move, remove or change anything in the system with no fear of breakages.</p>
