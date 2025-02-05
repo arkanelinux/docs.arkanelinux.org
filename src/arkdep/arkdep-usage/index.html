@@ -105,6 +105,17 @@
 					<div class="codeblock">sudo arkdep remove aaabbbccc</div>
 					<p>Impartial targets can be provided, if Arkdep has no more than a single hit the found deployment will be removed.</p>
 					<div class="codeblock">sudo arkdep remove aaa</div>
+					<h2>Layering packages</h2>
+					<p>Layered packages are installed using the system package manager on top of image deployments. It is recommended to avoid this feature because it infringes on the stability of the images.</p>
+					<p>When a package is layered it will be installed to the current deployment and any future deployments.</p>
+					<p>To avoid hard breakages, package layering will be skipped should it run in to an error at deploy time.</p>
+					<div class="codeblock">sudo arkdep layer chromium</div>
+					<p>Multiple packages to be layered can be provided at the same time.</p>
+					<div class="codeblock">sudo arkdep layer chromium firefox</div>
+					<p>Current packages which are layered can be listed using. It does not validate the layered tracker against the current deployment, upon a rollback packages which are to be layered by are not in the current deployment will still be listed as layered</p>
+					<div class="codeblock">sudo arkdep layer-ls</div>
+					<p>When a package is unlayered it is removed from the current deployment and will no longer be installed to any future deployments.</p>
+					<div class="codeblock">sudo arkdep unlayer chromium</div>
 					<h1>Configuring Arkdep</h1>
 					<h2>Updating the system</h2>
 					<p>Arkdep has several components which may be customized and configured.</p>
