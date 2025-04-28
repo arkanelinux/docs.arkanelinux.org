@@ -101,6 +101,7 @@
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
    ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
    ├── extensions           # (Optional) Directory for custom scripts
+      ├── pre_build.sh          # (Optional) Custom bash script which runs after the Btrfs subvolumes have been created
       ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
       ├── post_install.sh       # (Optional) Custom bash script which runs after system installation is finished
       ├── post_build.sh         # (Optional) Custom bash script which runs after image creation is fully finished</div>
@@ -118,9 +119,10 @@
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
    ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
    ├── extensions           # (Optional) Directory for custom scripts
+     ├── pre_build.sh          # (Optional) Custom bash script which runs after the Btrfs subvolumes have been created
      ├── post_bootstrap.sh     # (Optional) Custom bash script which runs after bootstrapping the system
-      ├── post_install.sh       # (Optional) Custom bash script which runs after system installation is finished
-      ├── post_build.sh         # (Optional) Custom bash script which runs after image creation is fully finished</div>
+     ├── post_install.sh       # (Optional) Custom bash script which runs after system installation is finished
+     ├── post_build.sh         # (Optional) Custom bash script which runs after image creation is fully finished</div>
 					<h1>Building a custom image</h1>
 					<p>First make a copy of one of the existing arkdep-build configurations in to a directory named arkdep-build.d;</p>
 					<div class="codeblock">mkdir arkdep-build.d
@@ -143,6 +145,7 @@ sudo arkdep deploy cache aaabbbccc</div>
 					<p>Build extensions are typically not required, the main Arkdep-build script should have compatibility with most, if not all, distros within a distro family. However odd software configurations not supported by Arkdep-build may require manual intervention to function in an immutable context or during the build stage, for this you can use build extensions.</p>
 					<p>Extensions are placed in the <code>arkdep-build.d/test-arkanelinux-kde/extensions/</code> directory, there are three scripts which Arkdep-build will source during the build process if available.
 					<ul>
+						<li><code>extensions/pre_build.sh</code> is sourced by Arkdep-build after creating the Btrfs subvolume hierarchy to which the system will be installed, but runs before the system is bootstrapped.</li>
 						<li><code>extensions/post_bootstrap.sh</code> is sourced by Arkdep-build after it finished bootstrapping the base system and overlaying overlay/post_bootstrap.</li>
 						<li><code>extensions/post_install.sh</code> is sourced by Arkdep-build after installing all system packages and overlaying <code>overlay/post_install/</code> but before it performs generic modifications to the system to make it immutable compatible.</li>
 						<li><code>extensions/post_build.sh</code> is sourced by Arkdep-build once the build is fully completed and exported, but before it performs a cleanup.</li>
