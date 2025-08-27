@@ -88,7 +88,7 @@
 					<h2>Arkdep-build</h2>
 					<p>The build stage does a traditional Linux distro install in to a disk image. This disk image is partitioned with Btrfs and prepared with <code>rootfs/</code>, <code>rootfs/etc</code> and <code>rootfs/var</code> subvolumes.</p>
 					<p>In the case of archlinux build types, the installation is done very similar to a traditional Arch Linux install. First the base system is installed with pacstrap, then through a chroot and using pacman the remainder of the system is installed.</p>
-					<p>After the system installation has been finished a some tweaks are made to the system to make it immutable compatible. See the <a href="/technical-overview">technical overview page</a> for details on these tweaks and changes.</p>
+					<p>After the system installation has been finished some tweaks are made to the system to make it immutable compatible, this mostly involves moving certain directories such as <code>/opt</code> and <code>/usr/local</code> to <code>/var</code>, which is a separate subvolume from root and by default writable, and replacing them with a symlink. See the <a href="/technical-overview">technical overview page</a> for details on these changes.</p>
 					<p>Finally the <code>rootfs/</code>, <code>rootfs/etc</code> and <code>rootfs/var</code> subvolumes are locked, exported and compressed in to a tarball.
 					<h2>Arkdep deploy</h2>
 					<p>When deploying an image Arkdep will download this image from an online repository to its cache directory. When the download is done this image is extracted and the resulting datastreams are fed directory to <code>btrfs receive</code> to be deployed.</p>
