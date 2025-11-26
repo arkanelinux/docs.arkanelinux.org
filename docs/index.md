@@ -8,8 +8,8 @@ Arkdep is the set of tools providing immutability to Arkane Linux. It attempts t
 
 # Getting started
 
-- If you are interested in learning how to use Arkdep as a user refer to the [Arkdep usage page](/arkdep-usage).
-- If you want to learn how to build your own images refer to the [Arkdep-build usage page](/arkdep-build-usage).
+- If you are interested in learning how to use Arkdep as a user refer to the [Arkdep usage page](/arkdep/usage/).
+- If you want to learn how to build your own images refer to the [Arkdep-build usage page](/arkdep/arkdep-build-usage/).
 
 # Special thanks
 
