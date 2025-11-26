@@ -29,6 +29,9 @@ const docsSidebar = [
 ]
 
 export default {
+	lang: 'en-US',
+	title: 'Arkane Linux Docs',
+	description: 'Arkane Linux and Arkdep documentation',
   themeConfig: {
     siteTitle: 'Arkane Linux Docs',
 		logo: '/arkanelinux-logo-3.svg',
