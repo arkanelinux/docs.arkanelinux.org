@@ -35,6 +35,7 @@ export default {
 		sidebar: {
 			'/': docsSidebar,
 		},
+		head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/arkanelinux' },
       { icon: 'codeberg', link: 'https://codeberg.org/arkanelinux' },
