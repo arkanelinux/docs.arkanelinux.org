@@ -47,5 +47,8 @@ export default {
       { icon: 'codeberg', link: 'https://codeberg.org/arkanelinux' },
       { icon: 'matrix', link: 'https://matrix.to/#/%23arkanelinux:matrix.org' }
     ],
+    search: {
+			provider: 'local'
+    }
   }
 }
