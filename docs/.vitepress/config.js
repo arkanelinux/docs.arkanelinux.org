@@ -1,6 +1,7 @@
 const docsSidebar = [
 	{
 		text: 'Arkane Linux',
+		collapsed: false,
 		items: [
 			{ text: 'About', link: '/' },
 			{ text: 'Lore', link: '/lore/' },
@@ -9,6 +10,7 @@ const docsSidebar = [
 	},
 	{
 		text: 'Arkdep',
+		collapsed: false,
 		items: [
 			{ text: 'Arkdep usage', link: '/arkdep/usage/' },
 			{ text: 'Arkdep-build usage', link: '/arkdep/arkdep-build-usage/' },
@@ -20,6 +22,7 @@ const docsSidebar = [
 	},
 	{
 		text: 'Patch Notes',
+		collapsed: false,
 		items: [
 			{ text: 'arkdep', link: '/patch-notes/arkdep/' },
 			{ text: 'Arkane Linux', link: '/patch-notes/arkanelinux/' },
