@@ -6,6 +6,7 @@ The GNOME configuration ships a stock gnome-shell with the following notable twe
 
 - Dark mode by default.
 - A custom wallpaper.
+- On first boot most core apps are installed as Flatpaks from Flathub.
 
 ## Filesystem
 
@@ -35,3 +36,5 @@ The following changes are made to the operating system configuration to make it 
 
 - A patched version of the `libnss-extrausers` PAM module is included and enabled by default.
 - `shadow`, `passwd` and `group` files with system accounts are stored in `/usr/lib`, these are loaded by the `libnss-extrausers` PAM module.
+
+
