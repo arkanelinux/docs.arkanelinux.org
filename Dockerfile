@@ -3,8 +3,8 @@ WORKDIR /root
 COPY . .
 RUN apt-get update && \
     apt-get install npm -y && \
-		npm install vitepress && \
-		npm run docs:build
+    npm install vitepress && \
+    npm run docs:build
 
 
 FROM docker.io/httpd:latest
