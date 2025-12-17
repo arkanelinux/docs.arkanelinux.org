@@ -3,6 +3,12 @@
 > [!NOTE]
 > These patch notes are not exhaustive and only list select changes at arbitrary points in time.
 
+
+## 2025.12.18
+
+- Add realtime-privileges.
+- Swap sudo with sudo-rs.
+
 ##  2025.07.5
 
 - Default localtime to UTC to fix systemd-firstboot soft freezing the system at first boot.
