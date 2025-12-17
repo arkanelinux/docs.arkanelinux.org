@@ -1,5 +1,12 @@
 # Arkdep patch notes
 
+
+## 2025.12.18
+
+- Remove machine-id and system SSH keys from images, they will be generated on first boot.
+- Add reset-config option.
+- Various miscellaneous fixes and cleanup.
+
 ## 2025.04.13
 
 - Fix package layer commands not defined on newly initted system.
