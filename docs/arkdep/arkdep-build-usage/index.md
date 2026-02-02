@@ -12,11 +12,11 @@ arkdep-build.d
    ├── overlay              # (Optional) Parent directory of post_bootstrap and post_install overlays
    |  ├── post_bootstrap    # (Optional) Root filesystem overlay directory, contents are copied to root after bootstrap step
    |  ├── post_install      # (Optional) Root filesystem overlay directory, contents are copied to root after package installation step
-   ├── bootstrap.list       # Plain text file containing list of packages installed by pacstrap, used for installing the base system
+   ├── bootstrap.list       # (Optional if provided via depends.list) Plain text file containing list of packages installed by pacstrap, used for installing the base system
    ├── package.list         # (Optional) Plain text file containing list of packages installed by pacman in a chroot, used for aditional package installations
    ├── depends.list         # (Optional) Plain text file containing filepaths of other variants used to extend package lists and overlays of current variant
    ├── pacman.conf          # (Optional) pacman configuration file to be used by pacstrap and pacman, is copied to the image after the bootstrap is done
-   ├── type                 # Plain text file, for configs of the Arch type should contain `archlinux`
+   ├── type                 # Plain text file defining which build script to use, for Arch Linux and Arch-based distros should contain `archlinux`
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
    ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
    ├── extensions           # (Optional) Directory for custom scripts
@@ -39,7 +39,7 @@ arkdep-build.d
    ├── package.list         # (Optional) Plain text file containing list of packages installed by apt in a chroot, used for aditional package installations
    ├── depends.list         # (Optional) Plain text file containing filepaths of other variants used to extend package lists and overlays of current variant
    ├── apt.conf             # Plain text file, contains repo URL and package suite, eg. `http://deb.debian.org/debian sid`
-   ├── type                 # Plain text file, for configs of the Debian type should contain `debian`
+   ├── type                 # Plain text file defining which build script to use, for Debian and Debian-based distros should contain `debian`
    ├── name.sh              # (Optional) Bash script, is sourced if available, output is used as image name
    ├── update.sh            # (Optional) Script run by Arkdep to perform minor updates to the system
    ├── extensions           # (Optional) Directory for custom scripts
