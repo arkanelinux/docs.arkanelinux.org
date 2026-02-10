@@ -20,9 +20,9 @@ It is highly recommended to use Flatpak and containers (eg. Distrobox + Podman) 
 
 When intend on making many changes it is best to [build your own images](/arkdep/arkdep-build-usage/) instead.
 
-### Layinging software
+### Layering software
 
-Arkdep can layer packages, it will keep track of a list of packages you wish to layer,and install these packages to your current deployment and any future deployments.
+Arkdep can layer packages, it will keep track of a list of packages you wish to layer, and install these packages to your current deployment and any future deployments.
 
 ```shell
 sudo arkdep layer firefox
