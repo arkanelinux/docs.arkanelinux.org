@@ -9,6 +9,13 @@ const docsSidebar = [
 		],
 	},
 	{
+		text: 'Introduction',
+		collapsed: false,
+		items: [
+			{ text: 'Quickstart', link: '/quickstart' },
+		],
+	},
+	{
 		text: 'Arkdep',
 		collapsed: false,
 		items: [
