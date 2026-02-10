@@ -13,6 +13,7 @@ const docsSidebar = [
 		collapsed: false,
 		items: [
 			{ text: 'Arkdep usage', link: '/arkdep/usage/' },
+			{ text: 'Arkdep configuration', link: '/arkdep/configuration/' },
 			{ text: 'Arkdep-build usage', link: '/arkdep/arkdep-build-usage/' },
 			{ text: 'Arkdep repository', link: '/arkdep/repository/' },
 			{ text: 'Arkdep migrations', link: '/arkdep/migrations/' },
