@@ -1,10 +1,11 @@
 FROM docker.io/debian:13 AS build
 WORKDIR /root
-COPY . .
 
 RUN apt-get update && \
     apt-get install npm -y
 
+COPY . .
+    
 RUN npm install vitepress && \
     npm run docs:build
 
