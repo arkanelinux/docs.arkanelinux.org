@@ -1,3 +1,3 @@
 # Arkane Linux documentation
 
-Code licensed under BSD3-Clause, site content licensed under CC BY-SA 4.0, unless indicated otherwise.
+Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
