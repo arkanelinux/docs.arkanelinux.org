@@ -1,4 +1,4 @@
-# Installing Arkdep on a new system
+# Manually installing Arkdep on a new system
 
 ## System requirements
 

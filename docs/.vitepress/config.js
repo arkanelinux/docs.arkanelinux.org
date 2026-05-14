@@ -24,7 +24,7 @@ const docsSidebar = [
 			{ text: 'Arkdep-build usage', link: '/arkdep/arkdep-build-usage/' },
 			{ text: 'Arkdep repository', link: '/arkdep/repository/' },
 			{ text: 'Arkdep migrations', link: '/arkdep/migrations/' },
-			{ text: 'Installation', link: '/arkdep/installation/' },
+			{ text: 'Manual installation', link: '/arkdep/installation/' },
 			{ text: 'How it works', link: '/arkdep/how-it-works/' },
 		],
 	},
