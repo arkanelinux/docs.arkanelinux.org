@@ -3,6 +3,11 @@
 > [!NOTE]
 > These patch notes are not exhaustive and only list select changes at arbitrary points in time.
 
+## 2026.10.01
+
+- Swapped libnss-extrausers with nss-altfiles.
+- Removed gnome-software in favor of a Bazaar Flatpak.
+- Added nftables.
 
 ## 2025.12.18
 
